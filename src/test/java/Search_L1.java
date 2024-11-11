@@ -1,2 +1,17 @@
-package PACKAGE_NAME;public class Search_L1 {
+import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class Search_L1 {
+    @Test
+    void successfulSearchTest() {
+        open("https://www.google.com/");
+        $("[name=q]").setValue("selenide").pressEnter();
+        $("[id=search]").shouldHave(text("selenide.org"));
+    }
+
 }
